@@ -1,0 +1,170 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Intern", sans-serif;
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #4c2e2e;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 10px 0;
+}
+
+.header-container {
+  max-width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  border-radius: 40px; /* Add rounded corners */
+  background: transparent; /* Transparent by default */
+  backdrop-filter: none; /* No blur initially */
+  transition: background 0.3s ease, backdrop-filter 0.3s ease; /* Smooth transition */
+}
+
+/* Add styles when the user scrolls */
+.header-container.scrolled {
+  background: rgba(102, 56, 29, 0.81); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Add blur effect */
+}
+
+.logo img {
+  width: 120px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s;
+  font-size: 19px;
+}
+
+.nav-links a:hover {
+  color: #ffce9b;
+}
+
+.hero {
+  height: 100vh;
+  position: relative;
+  overflow: hidden; /* Contains the video */
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.video-background .video-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-background video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.video-background video.ready {
+  opacity: 1;
+}
+
+.hero .content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1380px;
+  margin: 0 auto;
+}
+
+.hero-text {
+  font-size: 80px;
+  font-family: "DM-sans", Sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.image-left {
+  text-align: left;
+}
+
+.image-right {
+  text-align: right;
+}
+
+.image-left,
+.image-right {
+  width: 30%;
+  position: relative;
+}
+
+.image-left img,
+.image-right img {
+  position: absolute;
+  width: 100%;
+  display: block;
+  animation: float 3s infinite ease-in-out alternate;
+}
+
+.image-left img {
+  top: 145px;
+}
+
+.image-right img {
+  top: -170px;
+}
+
+@keyframes float {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.additional-section {
+  min-height: 100vh;
+  padding: 2rem 8rem;
+  position: relative;
+}

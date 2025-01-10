@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chocolate Landing Page</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <div class="logo">
+          <a href="#"><img src="./assets/images/logo.png" alt="Logo" /></a>
+        </div>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="video-background">
+          <img
+            class="video-placeholder"
+            src="./assets/images/ice-cream.png"
+            alt="Chocolate Video Frame"
+          />
+          <video autoplay muted loop playsinline>
+            <source src="./assets/images/chocolate.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="content">
+          <div class="image-left">
+            <p class="hero-text">Chocolate</p>
+            <p class="hero-text">makes</p>
+            <img
+              src="./assets/images/chocolate-piece-left.png"
+              alt="Choco image"
+            />
+          </div>
+          <div class="image-right">
+            <p class="hero-text">Everything</p>
+            <p class="hero-text">better.</p>
+            <img
+              src="./assets/images/chocolate-piece-right.png"
+              alt="Choco image"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="additional-section">
+        <h1>Additional Section</h1>
+        <!-- Add your content here -->
+      </section>
+    </main>
+
+    <script>
+      const video = document.querySelector("video");
+      const placeholder = document.querySelector(".video-placeholder");
+
+      video.addEventListener("canplay", () => {
+        video.classList.add("ready");
+        placeholder.style.display = "none";
+      });
+
+      video.addEventListener("error", () => {
+        placeholder.style.display = "block";
+      });
+
+      const headerContainer = document.querySelector(".header-container");
+
+      // Add scroll event listener
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          // Add the "scrolled" class when user scrolls down
+          headerContainer.classList.add("scrolled");
+        } else {
+          // Remove the "scrolled" class when at the top
+          headerContainer.classList.remove("scrolled");
+        }
+      });
+    </script>
+  </body>
+</html>
