@@ -4,12 +4,20 @@
   box-sizing: border-box;
 }
 
+:root {
+  --light: #ffce9b;
+  --dark: #613924;
+  --black: #15141a;
+  --white: #fff;
+  --lightgray: #c3c2c8;
+}
+
 body {
   font-family: "Intern", sans-serif;
-  color: #fff;
+  color: var(--white);
   min-height: 100vh;
   overflow-x: hidden;
-  background: #4c2e2e;
+  background: var(--dark);
 }
 
 header {
@@ -28,16 +36,15 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 3rem;
-  border-radius: 40px; /* Add rounded corners */
-  background: transparent; /* Transparent by default */
-  backdrop-filter: none; /* No blur initially */
-  transition: background 0.3s ease, backdrop-filter 0.3s ease; /* Smooth transition */
+  border-radius: 40px;
+  background: transparent;
+  backdrop-filter: none;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
 }
 
-/* Add styles when the user scrolls */
 .header-container.scrolled {
-  background: rgba(102, 56, 29, 0.81); /* Semi-transparent background */
-  backdrop-filter: blur(10px); /* Add blur effect */
+  background: rgba(102, 56, 29, 0.81);
+  backdrop-filter: blur(10px);
 }
 
 .logo img {
@@ -52,20 +59,20 @@ header {
 
 .nav-links a {
   text-decoration: none;
-  color: #fff;
+  color: var(--white);
   font-weight: 500;
   transition: color 0.3s;
   font-size: 19px;
 }
 
 .nav-links a:hover {
-  color: #ffce9b;
+  color: var(--light);
 }
 
 .hero {
   height: 100vh;
   position: relative;
-  overflow: hidden; /* Contains the video */
+  overflow: hidden;
 }
 
 .video-background {
@@ -144,11 +151,11 @@ header {
 }
 
 .image-left img {
-  top: 145px;
+  top: 255px;
 }
 
 .image-right img {
-  top: -170px;
+  top: -280px;
 }
 
 @keyframes float {
@@ -163,8 +170,293 @@ header {
   }
 }
 
-.additional-section {
-  min-height: 100vh;
+.immerse-section {
   padding: 2rem 8rem;
+  background-color: var(--black);
+}
+
+.immerse-section__wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.immerse-left,
+.immerse-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.immerse-middle img {
+  width: 370px;
+}
+
+.immerse-left {
+  text-align: right;
+}
+
+.immerse-heading {
+  font-size: 27px;
+}
+
+.immerse-heading p:first-child {
+  font-weight: bold;
+}
+
+.immerse-btn {
+  margin-top: 20px;
+}
+
+.immerse-btn a {
+  background: var(--dark);
+  padding: 13px 21px;
+  border-radius: 20px;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.second-sec {
+  background: var(--black);
+  display: flex;
+  justify-content: center;
+  padding: 60px 0;
+}
+
+.second-sec__wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 84%;
+}
+
+.second-sec-left,
+.second-sec-right {
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
+}
+
+.second-sec-left-heading__wrap {
+  margin-bottom: 32px;
+}
+
+.second-sec-left-heading__wrap h1,
+.second-sec-left-heading__wrap h2 {
+  font-size: 50px;
+}
+
+.second-sec-left-heading__wrap h1 {
+  font-weight: bold;
+}
+
+.second-sec-left-btns {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
+}
+
+.second-sec-left-btns a {
+  background: var(--black);
+  padding: 10px 20px;
+  border-radius: 40px;
+  color: var(--white);
+  text-decoration: none;
+  border: 1px solid var(--dark);
+  font-weight: bold;
+}
+
+.second-sec-left-btns a:hover {
+  background: var(--dark);
+}
+
+.second-sec-right {
+  align-items: center;
+  gap: 10px;
+}
+
+.second-sec-right-desc {
+  font-size: 14px;
+  width: 50%;
+  color: var(--lightgray);
+}
+
+.slider-container {
+  width: 100%;
+  padding: 50px 0;
+  background: url(./assets/images/chocolate-pieces.png);
+  background-color: var(--black);
+  height: 985px;
+}
+
+.swiper {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
   position: relative;
+  cursor: grab;
+  border: 1px solid var(--dark);
+  border-radius: 8px;
+}
+
+.swiper-slide .slide-img {
+  max-width: 35%;
+}
+
+.swiper-slide .slide-svg {
+  width: 15px;
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  cursor: pointer;
+}
+
+.slide-content {
+  color: var(--white);
+  text-align: center;
+  background: var(--black);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.slide-content h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: var(--light);
+}
+
+.slide-content p {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.slide-content button {
+  background: var(--dark);
+  color: var(--white);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.swiper-container-heading__wrap {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 150px auto 0 auto;
+  text-align: center;
+}
+
+.swiper-container-heading__wrap h2 {
+  font-size: 50px;
+}
+
+.swiper-container-heading__wrap h2:last-child {
+  font-weight: normal;
+}
+
+.swiper-container-heading__wrap a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  color: var(--white);
+  text-decoration: none;
+  margin-top: 20px;
+}
+
+.swiper-container-heading__wrap a img {
+  width: 45px;
+  filter: brightness(0) invert(1);
+}
+
+.footer {
+  background-image: url(./assets/images/footer.png);
+  background-color: var(--black);
+  background-size: cover;
+  background-position: top;
+  padding: 60px 20px;
+  color: var(--white);
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1445px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-section:not(:first-child) {
+  padding-top: 18px;
+}
+
+.footer-section img {
+  width: 120px;
+  margin-bottom: 15px;
+}
+
+.footer-section p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.footer-section h4 {
+  font-size: 21px;
+  font-weight: bold;
+  margin-bottom: 14px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+  text-decoration: none;
+  color: var(--white);
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: var(--light);
+}
+
+.footer-socials {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-socials a img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s;
+}
+
+.footer-socials a:hover img {
+  transform: scale(1.2);
 }
