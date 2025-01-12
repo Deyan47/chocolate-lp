@@ -14,10 +14,18 @@
   <body>
     <header>
       <div class="header-container">
-        <div class="logo">
-          <a href="#"><img src="./assets/images/logo.png" alt="Logo" /></a>
+        <div>
+          <div class="logo">
+            <a href="#"><img src="./assets/images/logo.png" alt="Logo" /></a>
+          </div>
+          <button class="menu-toggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
-        <nav>
+
+        <nav class="nav-menu">
           <ul class="nav-links">
             <li><a href="#">Home</a></li>
             <li><a href="#">Shop</a></li>
@@ -580,9 +588,9 @@
         </div>
       </div>
     </footer>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script defer src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-    <script>
+    <script defer>
       document.addEventListener("DOMContentLoaded", () => {
         const video = document.querySelector("video");
         const placeholder = document.querySelector(".video-placeholder");
@@ -600,12 +608,9 @@
           }
         };
 
-        video.addEventListener("loadeddata", () => {
-          playVideo();
-        });
-        video.addEventListener("canplay", () => {
-          playVideo();
-        });
+        video.addEventListener("loadeddata", playVideo);
+        video.addEventListener("canplay", playVideo);
+
         document.addEventListener(
           "click",
           () => {
@@ -622,15 +627,68 @@
         });
 
         const headerContainer = document.querySelector(".header-container");
+        const menuToggle = document.querySelector(".menu-toggle");
+        const navMenu = document.querySelector(".nav-menu");
+
+        // Add or remove "scrolled" class on scroll
         window.addEventListener("scroll", () => {
-          if (window.scrollY > 50) {
+          if (window.scrollY > 0) {
             headerContainer.classList.add("scrolled");
-          } else {
+          } else if (navMenu.style.display !== "block") {
             headerContainer.classList.remove("scrolled");
           }
         });
 
-        const swiper = new Swiper(".swiper", {
+        // Function to toggle menu visibility and "scrolled" class
+        const toggleMenu = () => {
+          const isMenuVisible = navMenu.style.display === "block";
+          if (isMenuVisible) {
+            navMenu.style.display = "none";
+            menuToggle.classList.remove("menu-open");
+            if (window.scrollY === 0) {
+              headerContainer.classList.remove("scrolled");
+            }
+          } else {
+            navMenu.style.display = "block";
+            menuToggle.classList.add("menu-open");
+            headerContainer.classList.add("scrolled");
+          }
+        };
+
+        // Function to close the menu
+        const closeMenu = () => {
+          navMenu.style.display = "none";
+          menuToggle.classList.remove("menu-open");
+          if (window.scrollY === 0) {
+            headerContainer.classList.remove("scrolled");
+          }
+        };
+
+        // Toggle menu on menuToggle click
+        menuToggle.addEventListener("click", (event) => {
+          event.stopPropagation();
+          toggleMenu();
+        });
+
+        // Close menu on clicking outside
+        document.addEventListener("click", (event) => {
+          if (
+            !headerContainer.contains(event.target) &&
+            navMenu.style.display === "block"
+          ) {
+            closeMenu();
+          }
+        });
+
+        // Close menu on window resize
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 768) {
+            closeMenu();
+          }
+        });
+
+        // Initialize Swiper for product slider
+        new Swiper(".swiper", {
           loop: true,
           slidesPerView: 4,
           spaceBetween: 20,
@@ -660,7 +718,8 @@
           },
         });
 
-        const testimonialsSwiper = new Swiper(".testimonials-slider", {
+        // Initialize Swiper for testimonials slider
+        new Swiper(".testimonials-slider", {
           loop: true,
           slidesPerView: 4,
           spaceBetween: 20,
