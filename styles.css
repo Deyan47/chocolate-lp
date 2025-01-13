@@ -224,7 +224,7 @@ header {
 }
 
 .immerse-middle img {
-  width: 370px;
+  max-width: 370px;
 }
 
 .immerse-left {
@@ -320,6 +320,9 @@ header {
   width: 100%;
   padding: 50px 0;
   background: url(./assets/images/chocolate-pieces.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
   background-color: var(--black);
   height: 985px;
 }
@@ -651,6 +654,15 @@ header {
   .hero-text {
     font-size: 66px;
   }
+  .immerse-section {
+    padding: 140px 10px 40px;
+  }
+  .testimonial-heading__wrap {
+    padding: 0 10px;
+  }
+  .testimonial-heading-left {
+    width: 70%;
+  }
 }
 
 @media screen and (max-width: 1024px) {
@@ -660,6 +672,12 @@ header {
   }
   .hero-text {
     font-size: 53px;
+  }
+  .swiper-container-heading__wrap {
+    width: 90%;
+  }
+  .immerse-heading {
+    font-size: 19px;
   }
 }
 
@@ -704,6 +722,9 @@ header {
   .second-sec-left-heading__wrap h2 {
     font-size: 46px;
   }
+  .immerse-middle img {
+    max-width: 350px;
+  }
 }
 
 @media screen and (max-width: 815px) {
@@ -718,6 +739,24 @@ header {
   .second-sec-right-desc {
     text-align: center;
   }
+  .immerse-section__wrap {
+    flex-direction: column;
+  }
+  .immerse-section {
+    padding: 40px 10px 40px;
+  }
+  .subscribe__wrap {
+    text-align: center;
+    padding: 10px 10px;
+  }
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-section {
+    align-items: center;
+  }
 }
 
 @media screen and (max-width: 650px) {
@@ -729,25 +768,55 @@ header {
   .second-sec-left-heading__wrap h2 {
     font-size: 42px;
   }
-
-  @media screen and (max-width: 495px) {
-    .hero-text {
-      font-size: 20px;
-    }
-    .second-sec-left-heading__wrap h1,
-    .second-sec-left-heading__wrap h2 {
-      font-size: 35px;
-    }
+  .swiper-container-heading__wrap h2 {
+    font-size: 41px;
   }
+  .swiper-container-heading__wrap {
+    margin: 30px auto 0 auto;
+  }
+}
 
-  @media screen and (max-width: 415px) {
-    .second-sec-left-heading__wrap h1,
-    .second-sec-left-heading__wrap h2 {
-      font-size: 30px;
-    }
-    .second-sec-left-btns {
-      flex-direction: column;
-      align-items: normal;
-    }
+@media screen and (max-width: 495px) {
+  .hero-text {
+    font-size: 20px;
+  }
+  .second-sec-left-heading__wrap h1,
+  .second-sec-left-heading__wrap h2 {
+    font-size: 35px;
+  }
+  .swiper-container-heading__wrap h2 {
+    font-size: 35px;
+  }
+  .subscribe__wrap h2 {
+    font-size: 38px;
+  }
+  .testimonial-heading__wrap {
+    flex-direction: column;
+  }
+  .testimonial-heading-left {
+    width: 100%;
+  }
+  .testimonials-subheading {
+    margin-bottom: 0;
+  }
+  .testimonials-read-more {
+    margin: 30px 0 20px;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .second-sec-left-heading__wrap h1,
+  .second-sec-left-heading__wrap h2 {
+    font-size: 30px;
+  }
+  .second-sec-left-btns {
+    flex-direction: column;
+    align-items: normal;
+  }
+  .swiper-container-heading__wrap h2 {
+    font-size: 32px;
+  }
+  .subscribe__wrap h2 {
+    font-size: 36px;
   }
 }
